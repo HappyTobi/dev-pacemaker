@@ -1,0 +1,25 @@
+{
+	"name": "Pacemaker development project",
+	"build": {
+        "dockerfile": "Dockerfile",
+        "args": {}
+    },
+	//NET_ADMIN required to call ip command
+	"runArgs": ["--cap-add=NET_ADMIN"],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"ms-python.python",
+				"golang.go"
+			]
+		}
+	},
+	"mounts": [
+		"source=cluster-labs-resource-agents,target=${containerWorkspaceFolder}/src,type=volume"
+	],
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/usr/local/go/bin"
+	},
+	"postStartCommand": "scripts/setup.sh"
+}
