@@ -16,19 +16,19 @@ if [ -d "src/resource-agents" ]; then
     echo "resource-agents already cloned"
 else
     pushd src
-        cd src && git clone https://github.com/ClusterLabs/resource-agents.git
+        git clone https://github.com/ClusterLabs/resource-agents.git
     popd
 fi
 
 
 echo "installing go packages"
 go install -v  golang.org/x/tools/gopls@latest
-go install -v  github.com/cweill/gotests/gotests
-go install -v  github.com/fatih/gomodifytags
-go install -v  github.com/josharian/impl
-go install -v  github.com/haya14busa/goplay/cmd/goplay
-go install -v  github.com/go-delve/delve/cmd/dlv
-go install -v  honnef.co/go/tools/cmd/staticcheck
+go install -v  github.com/cweill/gotests/gotests@latest
+go install -v  github.com/fatih/gomodifytags@latest
+go install -v  github.com/josharian/impl@latest
+go install -v  github.com/haya14busa/goplay/cmd/goplay@latest
+go install -v  github.com/go-delve/delve/cmd/dlv@latest
+go install -v  honnef.co/go/tools/cmd/staticcheck@latest
 
 # Add ip address to eth0 device
 ip a add 169.254.169.254/255.255.255.0 dev eth0:1
