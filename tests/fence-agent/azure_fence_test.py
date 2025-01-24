@@ -42,9 +42,17 @@ class TestClass(unittest.TestCase):
         vmName = os.environ.get('AZURE_VM_NAME')
 
         compute_client = azure_fence.get_azure_compute_client(config)
-        vm = azure_fence.get_vm_resource(compute_client,resourceGroup,vmName)
 
+        vm = azure_fence.get_vm_resource(compute_client,resourceGroup,vmName)
         self.assertIsNotNone(vm)
+
+        vms = azure_fence.get_vm_list(compute_client,resourceGroup)
+        self.assertIsNotNone(vms)
+
+        azure_fence.do_vm_power_off(compute_client,resourceGroup,vmName,True)
+
+        azure_fence.do_vm_start(compute_client,resourceGroup,vmName)
+
 
 if __name__=='__main__':
     unittest.main()
