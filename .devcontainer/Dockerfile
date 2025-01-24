@@ -19,7 +19,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   make \
   unzip \
   pcs \
-  pacemaker
+  pacemaker \
+  fence-agents-base
 
 COPY ./scripts/golang.sh /tmp/scripts/golang.sh
 RUN chmod +x /tmp/scripts/golang.sh && /tmp/scripts/golang.sh "${GOLANG_VERSION}"

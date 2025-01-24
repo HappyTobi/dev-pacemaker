@@ -5,6 +5,30 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug azure-fence agent test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/dev-pacemaker/tests/fence-agent/azure_fence_test.py",
+            "console": "integratedTerminal",
+            "args": [],
+            "env": {
+                "SUBSCRIPTION_ID":"<USE_OWN_VARS>",
+                "APPLICATION_ID":"<USE_OWN_VARS>",
+                "APPLICATION_KEY":"<USE_OWN_VARS>",
+                "TENANT_ID":"<USE_OWN_VARS>",
+                "AZURE_RESOURCE_GROUP":"<USE_OWN_VARS>",
+                "AZURE_VM_NAME":"<USE_OWN_VARS>"
+                }
+        },
+        {
+            "name": "Debug azure-fence agent",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/dev-pacemaker/src/fence-agents/agents/azure_arm/fence_azure_arm.py",
+            "console": "integratedTerminal",
+            "args": [],
+        },
+        {
             "name": "Debug azure-events-az",
             "type": "debugpy",
             "request": "launch",

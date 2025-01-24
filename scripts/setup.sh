@@ -20,6 +20,14 @@ else
     popd
 fi
 
+if [ -d "src/fence-agents" ]; then
+    echo "resource-agents already cloned"
+else
+    pushd src
+        git clone https://github.com/ClusterLabs/fence-agents.git
+    popd
+fi
+
 
 echo "installing go packages"
 go install -v  golang.org/x/tools/gopls@latest
